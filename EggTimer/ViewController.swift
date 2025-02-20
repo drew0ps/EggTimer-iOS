@@ -9,22 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let softTime = 5
-    let mediumTime = 7
-    let hardTime = 12
+    let eggTimes = ["Soft": 5*60, "Medium": 7*60, "Hard": 12*60]
+    var counter = 30
     
     @IBAction func hardnessSelected(_ sender: UIButton) {
-        let hardness = sender.currentTitle
-        if hardness == "Soft" {
-            print(softTime)
-        }
-        else if hardness == "Medium" {
-            print(mediumTime)
-        }
-        else {
-            print(hardTime)
+        let hardness = sender.currentTitle!
+        counter = eggTimes[hardness]!
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+    }
+
+
+    @objc func updateCounter() {
+        //example functionality
+        if counter > 0 {
+            print("\(counter) seconds to the end of the world")
+            counter -= 1
         }
     }
     
-
 }
