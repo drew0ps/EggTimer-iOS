@@ -12,7 +12,7 @@ import AVFoundation
 var player: AVAudioPlayer!
 
 class ViewController: UIViewController {
-    let eggTimes = ["Soft": 5*2, "Medium": 7*60, "Hard": 12*60]
+    let eggTimes = ["Soft": 5*60, "Medium": 7*60, "Hard": 12*60]
     var counter = 30
     var timer = Timer()
     var totalTime = 0
